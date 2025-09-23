@@ -1,0 +1,141 @@
+/* Definindo as variáveis de cor baseadas no seu app */
+:root {
+    --fundo-principal: #121212;
+    --fundo-card: #1e1e1e;
+    --cor-destaque: #0084ff;
+    --cor-destaque-hover: #0066cc;
+    --texto-branco: #ffffff;
+    --texto-cinza: #cccccc;
+    --fonte-titulo: 'Montserrat', sans-serif;
+    --fonte-corpo: 'Poppins', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo-principal);
+    color: var(--texto-branco);
+    font-family: var(--fonte-corpo);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho */
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 200px; /* Ajuste o tamanho do seu logo */
+}
+
+/* Seção Principal (Hero) */
+.hero {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.8rem;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--texto-cinza);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* Botão Principal */
+.btn-principal {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--texto-branco);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 15px; /* Mesmo border-radius do app */
+    transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-destaque-hover);
+}
+
+/* Seção de Recursos */
+.features {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--texto-branco);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--fundo-card);
+    padding: 30px;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 15px; /* Cantos arredondados como no app */
+    text-align: left;
+}
+
+.card h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--texto-cinza);
+}
+
+/* Seção de Download Final */
+.download-final {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.download-final h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.download-final p {
+    color: var(--texto-cinza);
+    margin-bottom: 30px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--texto-cinza);
+    border-top: 1px solid var(--fundo-card);
+}
