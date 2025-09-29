@@ -156,3 +156,34 @@ footer {
     width: 100%;
     margin-top: auto; /* Empurra o rodapé para o final */
 }
+
+/* --- AJUSTES PARA DISPOSITIVOS MÓVEIS --- */
+/* --- AJUSTES PARA DISPOSITIVOS MÓVEIS --- */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 15px; /* Menos preenchimento nas laterais */
+    }
+
+    .hero {
+        padding: 20px 0; /* Menos espaçamento vertical */
+    }
+
+    .hero h1 {
+        /* Reduz um pouco o título para garantir que ele não quebre de forma estranha */
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+    }
+
+    .hero p {
+        /* Garante que o parágrafo nunca seja maior que a tela */
+        max-width: 100%;
+    }
+
+    .bots-grid {
+        /* Força os cards a ficarem em uma única coluna */
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px; /* Menos preenchimento interno nos cards */
+    }
+}
