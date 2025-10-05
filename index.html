@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KanBot</title>
+    <title>KanBot - Painel de Ferramentas</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,52 +15,204 @@
 <body>
     <div id="particles-js"></div>
 
-    <div class="content-wrapper">
-        <header>
-            <img src="photos/logo.png" alt="Logo do KanBot" class="logo">
-        </header>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="photos/logo.png" alt="Logo do KanBot" class="logo">
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" id="inicio-link" class="active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>Início</span>
+                </a></li>
+                <li><a href="#" id="ferramentas-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+                    <span>Ferramentas</span>
+                </a></li>
+                <li><a href="#" id="converter-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+                    <span>Converter Formatos</span>
+                </a></li>
+                <li><a href="#" id="support-link">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <span>Suporte</span>
+                </a></li>
+            </ul>
+        </nav>
 
-        <main>
-            <section class="hero">
-                <h1>Automação para Instagram</h1>
-                <p>Escolha a ferramenta ideal para sua necessidade.</p>
-            </section>
-
-            <section class="bots-grid">
-                <div class="card">
-                    <h3>Bot Verificador</h3>
-                    <ul>
-                        <li>Verifica contas em massa.</li>
-                        <li>Identifica contas ativas ou desativadas.</li>
-                        <li>relatórios detalhados.</li>
-                    </ul>
-                    <a href="https://abrir.link/CUXlp" class="btn-principal">Baixar Verificador</a>
+        <div class="main-content">
+            <main>
+                <div id="bots-tool" class="tool-container active">
+                    <header class="main-header">
+                        <h1>Contratar produtos.</h1>
+                        <p>Lista de bots para contratar.</p>
+                    </header>
+                    <section class="bots-grid">
+                        <div class="card">
+                            <div class="card-header">
+                               <img src="photos/bot-verificador.png" alt="Ícone do Bot Verificador" class="bot-icon clickable-image">
+                               <h3>Bot Verificador</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Verifica contas em massa.</li>
+                                    <li>Identifica contas ativas ou desativadas.</li>
+                                    <li>Gera relatórios detalhados.</li>
+                                </ul>
+                                <div class="price-section">
+                                    <h4>Preços:</h4>
+                                    <p>1 Dia - (R$ 0,50)</p>
+                                    <p>7 Dias - (R$ 0,99)</p>
+                                    <p>15 Dias - (R$ 1,99)</p>
+                                    <p>30 Dias - (R$ 2,99)</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn-principal download-btn" data-url="https://abrir.link/tPYkA">Baixar Verificador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                             <div class="card-header">
+                                <img src="photos/bot-montador.png" alt="Ícone do Bot Montador" class="bot-icon clickable-image">
+                                <h3>Bot Montador & Movimentador</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Adiciona foto.</li>
+                                    <li>Montagem por navegador e API</li>
+                                    <li>Reels</li>
+                                    <li>Postagem</li>
+                                    <li>2FA</li>
+                                    <li>Biografia</li>
+                                    <li>Troca de mensagens</li>
+                                    <li>Realiza ações para aquecer contas</li>
+                                    <li>Segue usuários e interage com posts</li>
+                                    <li>Opção de adicionar Proxy</li>
+                                </ul>
+                                <div class="price-section">
+                                    <h4>Preços:</h4>
+                                    <p>1 Dia - (R$ 2,99)</p>
+                                    <p>7 Dias - (R$ 3,99)</p>
+                                    <p>15 Dias - (R$ 4,99)</p>
+                                    <p>30 Dias - (R$ 5.99)</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                 <a href="#" class="btn-principal download-btn" data-url="https://abrir.link/apbRo">Baixar Montador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                               <img src="photos/bot-criador.png" alt="Ícone do Bot Criador" class="bot-icon clickable-image">
+                               <h3>Bot Criador</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Cria contas com uma alta qualidade.</li>
+                                    <li>Segue perfis</li>
+                                    <li>2FA</li>
+                                    <li>Foto de Perfil</li>
+                                    <li>Suporte a múltiplos domínios de e-mail</li>
+                                    <li>Ranking dos Usuarios</li>
+                                </ul>
+                                 <div class="price-section">
+                                    <h4>Preços:</h4>
+                                    <p>1 Dia - (R$ 2,99)</p>
+                                    <p>7 Dias - (R$ 3,99)</p>
+                                    <p>15 Dias - (R$ 4,99)</p>
+                                    <p>30 Dias - (R$ 5.99)</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn-principal download-btn" data-url="https://abrir.link/aWMor">Baixar Criador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                               <img src="photos/bot-ADB.png" alt="Ícone do Bot Criador ADB" class="bot-icon clickable-image">
+                               <h3>Criador ADB</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Criação pelo Emulador</li>
+                                    <li>Vários domínios</li>
+                                    <li>Criação rápida e eficiente</li>
+                                    <li>Adiciona 2FA</li>
+                                    <li>Adiciona biografia</li>
+                                    <li>Segue perfis</li>
+                                </ul>
+                                 <div class="price-section">
+                                    <h4>Preços:</h4>
+                                    <p>1 Dia - (R$ 0,90)</p>
+                                    <p>7 Dias - (R$ 4,90)</p>
+                                    <p>15 Dias - (R$ 8,90)</p>
+                                    <p>30 Dias - (R$ 13,90)</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn-principal download-btn" data-url="https://abrir.link/otJgk">Baixar Criador ADB</a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-
-                <div class="card">
-                    <h3>Bot Montador & Movimentador</h3>
-                    <ul>
-                        <li>Adiciona foto de perfil, Publicação biografia e muito mais.</li>
-                        <li>Realiza ações para aquecer contas.</li>
-                        <li>Segue usuários e interage com conteúdo.</li>
-                    </ul>
-                    <a href="https://abrir.link/apbRo" class="btn-principal">Baixar Montador</a>
+                
+                <div id="converter-tool" class="tool-container">
+                    <header class="main-header">
+                         <h1>Converter Formatos.</h1>
+                         <p>Cole os perfis na caixa da esquerda para converter automaticamente.</p>
+                    </header>
+                    <section class="converter-section">
+                        <div class="converter-container">
+                            <div class="converter-box">
+                                <textarea id="input-accounts" placeholder="Adicione as contas aqui..."></textarea>
+                            </div>
+                            <div class="converter-box">
+                                <textarea id="output-accounts" placeholder="Contas convertidas..." readonly></textarea>
+                            </div>
+                        </div>
+                    </section>
                 </div>
+            </main>
 
-                <div class="card">
-                    <h3>Bot Criador</h3>
-                    <ul>
-                        <li>Cria contas com uma alta qualidade.</li>
-                        <li>Suporte a múltiplos dominios de e-mail.</li>
-                    </ul>
-                    <a href="https://abrir.link/aWMor" class="btn-principal">Baixar Criador</a>
-                </div>
-            </section>
-        </main>
+            <footer>
+                <p>&copy; 2025 KanBot. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
 
-        <footer>
-            <p>&copy; 2025 KanBot. Todos os direitos reservados.</p>
-        </footer>
+    <div id="support-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Suporte KanBot</h2>
+            <p>Entre em contato conosco através dos canais abaixo:</p>
+            <div class="support-links">
+                <a href="https://wa.me/5521998254061" target="_blank" class="support-link whatsapp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://t.me/KanBot_Official" target="_blank" class="support-link telegram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon">
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="download-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Aviso de Pagamento</h2>
+            <p>O pagamento é feito através do próprio bot. Em caso de dúvidas, não hesite em chamar o suporte.</p>
+            <div class="modal-buttons">
+                <a href="#" id="confirm-download-btn" class="btn-principal" target="_blank">Continuar Download</a>
+                <button id="cancel-download-btn" class="btn-secondary">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-modal" class="modal">
+        <span class="close-btn image-close-btn">&times;</span>
+        <img class="modal-content-image" id="modal-image">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
