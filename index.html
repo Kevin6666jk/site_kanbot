@@ -9,13 +9,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="photos/logo.ico" type="image/x-icon">
 </head>
 <body>
+    <div id="login-container">
+        <div class="login-box">
+            <img src="photos/logo.png" alt="Logo" class="login-logo">
+            <h2 id="form-title">Login</h2>
+            <p id="auth-error-message" class="error-message"></p>
+            
+            <div class="input-group">
+                <input type="email" id="email-input" required>
+                <span>Email</span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password-input" required>
+                <span>Senha</span>
+            </div>
+            
+            <button id="login-btn" class="btn-principal">Entrar</button>
+            
+            <p class="toggle-form-text">
+                Não tem uma conta? <a href="#" id="toggle-to-register">Registre-se</a>
+            </p>
+        </div>
+    </div>
     <div id="particles-js"></div>
 
-    <div class="dashboard-container">
+    <div class="dashboard-container" style="display: none;">
         <nav class="sidebar">
             <div class="sidebar-header">
                 <img src="photos/logo.png" alt="Logo do KanBot" class="logo">
@@ -36,6 +61,11 @@
                 <li><a href="#" id="support-link">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     <span>Suporte</span>
+                </a></li>
+                
+                <li><a href="#" id="logout-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    <span>Sair</span>
                 </a></li>
             </ul>
         </nav>
