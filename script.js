@@ -1,14 +1,13 @@
 /* --- INICIALIZAÇÃO E LÓGICA DO FIREBASE AUTH --- */
 
-// SUA CONFIGURAÇÃO ESPECÍFICA DO FIREBASE
+// SUA CONFIGURAÇÃO ESPECÍFICA DO FIREBASE (ATUALIZADA)
 const firebaseConfig = {
-  apiKey: "AIzaSyAKA6yEzzJOy-5eI2Is-bo1y2fVSaOX9kI",
-  authDomain: "atualizacaookanbot.firebaseapp.com",
-  databaseURL: "https://atualizacaookanbot-default-rtdb.firebaseio.com",
-  projectId: "atualizacaookanbot",
-  storageBucket: "atualizacaookanbot.firebasestorage.app",
-  messagingSenderId: "169947455035",
-  appId: "1:169947455035:web:ee0aab85b08efef191c61e"
+  apiKey: "AIzaSyADkjUglYQfFDoHZTBSPEajGabS0W5fFKQ",
+  authDomain: "sistema-login-python.firebaseapp.com",
+  projectId: "sistema-login-python",
+  storageBucket: "sistema-login-python.firebasestorage.app",
+  messagingSenderId: "1043455950430",
+  appId: "1:1043455950430:web:9863511feb299fc9c73ecf"
 };
 
 // Inicializa o Firebase
