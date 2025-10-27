@@ -264,7 +264,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const dashboardContainer = document.querySelector('.dashboard-container');
     const particlesJsEl = document.getElementById('particles-js');
 
-    const emailInput = document.getElementById('email-input');
+    // ===== LINHA MODIFICADA =====
+    const loginInput = document.getElementById('login-input'); // Mudado de 'email-input'
     const passwordInput = document.getElementById('password-input');
     
     const loginBtn = document.getElementById('login-btn');
@@ -305,6 +306,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             ptMessage = "Usuário não encontrado.";
         } else if (message.includes("auth/weak-password")) {
             ptMessage = "A senha deve ter pelo menos 6 caracteres.";
+        } else if (message.includes("auth/invalid-email")) {
+            ptMessage = "O formato do usuário (e-mail) é inválido.";
         } else {
              ptMessage = "Ocorreu um erro. Tente novamente.";
         }
@@ -316,13 +319,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Ação do Botão (Login ou Registro)
     loginBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const email = emailInput.value;
+        
+        // ===== LINHAS MODIFICADAS =====
+        const email = loginInput.value; // Pega o valor do campo 'login-input'
         const password = passwordInput.value;
         
         if (!email || !password) {
-            showAuthError("Por favor, preencha o e-mail e a senha.");
+            showAuthError("Por favor, preencha o usuário e a senha."); // Mensagem de erro atualizada
             return;
         }
+        // ===== FIM DAS MODIFICAÇÕES =====
 
         errorMessage.style.display = 'none';
         loginBtn.disabled = true;
