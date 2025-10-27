@@ -1,3 +1,23 @@
+/* --- INICIALIZAÇÃO E LÓGICA DO FIREBASE AUTH --- */
+
+// SUA CONFIGURAÇÃO ESPECÍFICA DO FIREBASE
+const firebaseConfig = {
+  apiKey: "AIzaSyAKA6yEzzJOy-5eI2Is-bo1y2fVSaOX9kI",
+  authDomain: "atualizacaookanbot.firebaseapp.com",
+  databaseURL: "https://atualizacaookanbot-default-rtdb.firebaseio.com",
+  projectId: "atualizacaookanbot",
+  storageBucket: "atualizacaookanbot.firebasestorage.app",
+  messagingSenderId: "169947455035",
+  appId: "1:169947455035:web:ee0aab85b08efef191c61e"
+};
+
+// Inicializa o Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+/* --- FIM DA LÓGICA DO FIREBASE --- */
+
+
 /* Configuração do Particles.js */
 if (document.getElementById('particles-js')) {
     particlesJS("particles-js", {
@@ -237,4 +257,137 @@ document.addEventListener('DOMContentLoaded', (event) => {
             outputAccounts.value = result;
         });
     }
+
+    /* --- LÓGICA DE AUTENTICAÇÃO E ROTEAMENTO --- */
+
+    // Referências do DOM
+    const loginContainer = document.getElementById('login-container');
+    const dashboardContainer = document.querySelector('.dashboard-container');
+    const particlesJsEl = document.getElementById('particles-js');
+
+    const emailInput = document.getElementById('email-input');
+    const passwordInput = document.getElementById('password-input');
+    
+    const loginBtn = document.getElementById('login-btn');
+    const logoutBtn = document.getElementById('logout-link');
+    
+    const toggleLink = document.getElementById('toggle-to-register');
+    const formTitle = document.getElementById('form-title');
+    const errorMessage = document.getElementById('auth-error-message');
+
+    let isRegisterMode = false;
+
+    // Alterna entre Login e Registro
+    toggleLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        isRegisterMode = !isRegisterMode;
+        
+        if (isRegisterMode) {
+            formTitle.textContent = 'Registrar';
+            loginBtn.textContent = 'Criar Conta';
+            toggleLink.innerHTML = 'Já tem uma conta? <a href="#" id="toggle-to-login">Entre</a>';
+        } else {
+            formTitle.textContent = 'Login';
+            loginBtn.textContent = 'Entrar';
+            toggleLink.innerHTML = 'Não tem uma conta? <a href="#" id="toggle-to-register">Registre-se</a>';
+        }
+        errorMessage.style.display = 'none';
+    });
+
+    // Função para mostrar erros
+    function showAuthError(message) {
+        // Traduz mensagens comuns do Firebase
+        let ptMessage = message;
+        if (message.includes("auth/email-already-in-use")) {
+            ptMessage = "Este e-mail já está em uso.";
+        } else if (message.includes("auth/wrong-password")) {
+            ptMessage = "Senha incorreta.";
+        } else if (message.includes("auth/user-not-found")) {
+            ptMessage = "Usuário não encontrado.";
+        } else if (message.includes("auth/weak-password")) {
+            ptMessage = "A senha deve ter pelo menos 6 caracteres.";
+        } else {
+             ptMessage = "Ocorreu um erro. Tente novamente.";
+        }
+        
+        errorMessage.textContent = ptMessage;
+        errorMessage.style.display = 'block';
+    }
+
+    // Ação do Botão (Login ou Registro)
+    loginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        
+        if (!email || !password) {
+            showAuthError("Por favor, preencha o e-mail e a senha.");
+            return;
+        }
+
+        errorMessage.style.display = 'none';
+        loginBtn.disabled = true;
+        loginBtn.textContent = 'Carregando...';
+
+        if (isRegisterMode) {
+            // --- MODO REGISTRO ---
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Sucesso no registro (já loga automaticamente)
+                    // O 'onAuthStateChanged' cuidará de mostrar o dashboard
+                })
+                .catch((error) => {
+                    showAuthError(error.message);
+                })
+                .finally(() => {
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Criar Conta';
+                });
+        } else {
+            // --- MODO LOGIN ---
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Sucesso no login
+                    // O 'onAuthStateChanged' cuidará de mostrar o dashboard
+                })
+                .catch((error) => {
+                    showAuthError(error.message);
+                })
+                .finally(() => {
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Entrar';
+                });
+        }
+    });
+
+    // Ação de Logout
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        auth.signOut();
+    });
+
+    // --- O OBSERVADOR DE AUTENTICAÇÃO ---
+    // Esta é a função mais importante.
+    // Ela roda automaticamente quando a página carrega e
+    // sempre que o status de login/logout muda.
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // --- USUÁRIO ESTÁ LOGADO ---
+            console.log("Usuário logado:", user.email);
+            // Esconde a tela de login
+            if (loginContainer) loginContainer.style.display = 'none';
+            // Mostra o dashboard e as partículas
+            if (dashboardContainer) dashboardContainer.style.display = 'flex';
+            if (particlesJsEl) particlesJsEl.style.display = 'block';
+        } else {
+            // --- USUÁRIO ESTÁ DESLOGADO ---
+            console.log("Usuário deslogado.");
+            // Mostra a tela de login
+            if (loginContainer) loginContainer.style.display = 'flex';
+            // Esconde o dashboard e as partículas
+            if (dashboardContainer) dashboardContainer.style.display = 'none';
+            if (particlesJsEl) particlesJsEl.style.display = 'none';
+        }
+    });
+
 });
